@@ -106,3 +106,18 @@
 #     return str == reversed_str
 
 # print(palindrome('abba'))
+
+# 4. Convert a String with underscore and/or hypen to camel case
+# Codewars challenge : https://www.codewars.com/kata/517abf86da9663f1d2000003/train/python
+
+# def to_camel_case(text):
+#     #your code here
+#     text_array = text.replace('_', " ").replace('-', " ").split(" ")
+#     for word in text_array:
+#         index = text_array.index(word)
+#         if word == text_array[0]:
+#             continue
+#         text_array[index] = word.title()
+#     return "".join(text_array)
+
+# to_camel_case('the_stealth_warrior')
