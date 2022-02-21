@@ -16,8 +16,9 @@ class Contact:
     def delete_contact(self):
         Contact.Contact_list.remove(self)
 
-    def filter_contact_by_number(self, number):
-        filtered = [contact for contact in Contact.Contact_list if contact.phone == number]
+    @classmethod
+    def filter_contact_by_number(cls, number):
+        filtered = [contact for contact in cls.Contact_list if contact.phone == number]
         return filtered
 
 
