@@ -45,5 +45,10 @@ class ContatTest(unittest.TestCase):
             '0711135616'), [self.new_contact])
 
 
+    def test_display_contacts(self):
+        self.new_contact.save_contact()
+        self.assertEqual(Contact.display_all_contacts(), Contact.Contact_list)
+
+
 if __name__ == '__main__':
     unittest.main()

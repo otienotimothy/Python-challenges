@@ -22,5 +22,9 @@ class Contact:
         return filtered
 
 
+    @classmethod
+    def display_all_contacts(cls):
+        return cls.Contact_list
+
     def __str__(self) -> str:
         return f'Dictionary with first name as {self.first_name} and second name as {self.second_name} '
