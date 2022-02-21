@@ -1,14 +1,15 @@
 import unittest
 from contact import Contact
 
+
 class ContatTest(unittest.TestCase):
     '''
         Tests for the contact creation class
     '''
 
     def setUp(self):
-        self.new_contact = Contact('James', 'Rodriguez', '0711135616', 'james@rodriguez@example.com')
-
+        self.new_contact = Contact(
+            'James', 'Rodriguez', '0711135616', 'james@rodriguez@example.com')
 
     def tearDown(self):
         Contact.Contact_list = []
@@ -25,17 +26,24 @@ class ContatTest(unittest.TestCase):
 
     def test_save_multiple_contacts(self):
         self.new_contact.save_contact()
-        another_contact = Contact('Paul', 'Pogba', '0711135616', 'pp@example.com')
+        another_contact = Contact(
+            'Paul', 'Pogba', '0711135616', 'pp@example.com')
         another_contact.save_contact()
         self.assertEqual(len(Contact.Contact_list), 2)
 
     def test_delete_contact(self):
         self.new_contact.save_contact()
-        another_contact = Contact('Paul', 'Pogba', '0711135616', 'pp@example.com')
+        another_contact = Contact(
+            'Paul', 'Pogba', '0711135616', 'pp@example.com')
         another_contact.save_contact()
         self.new_contact.delete_contact()
         self.assertEqual(len(Contact.Contact_list), 1)
-        
+
+    def test_filter_contacts(self):
+        self.new_contact.save_contact()
+        self.assertEqual(self.new_contact.filter_contact_by_number(
+            '0711135616'), [self.new_contact])
+
 
 if __name__ == '__main__':
     unittest.main()

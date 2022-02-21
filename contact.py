@@ -16,6 +16,10 @@ class Contact:
     def delete_contact(self):
         Contact.Contact_list.remove(self)
 
+    def filter_contact_by_number(self, number):
+        filtered = [contact for contact in Contact.Contact_list if contact.phone == number]
+        return filtered
+
 
     def __str__(self) -> str:
         return f'Dictionary with first name as {self.first_name} and second name as {self.second_name} '
